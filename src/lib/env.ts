@@ -13,6 +13,7 @@ export const env = createEnv({
     DATABASE_URL: z.string(),
     BETTER_AUTH_SECRET: z.string(),
     DATABASE_TABLE_FILTER: z.string().default("temp_*"),
+    GOOGLE_CLIENT_SECRET: z.string(),
   },
   /*
    * Environment variables available on the client (and server).
@@ -31,12 +32,16 @@ export const env = createEnv({
    * only specify client-side variables.
    */
   runtimeEnv: {
+    DATABASE_URL: process.env.DATABASE_URL,
+
+    NEXT_PUBLIC_BASE_URL: process.env.PUBLIC_BASE_URL,
+
     NODE_ENV: process.env.NODE_ENV,
     DATABASE_TABLE_FILTER: process.env.DATABASE_TABLE_FILTER,
-    NEXT_PUBLIC_GOOGLE_CLIENT_ID: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID,
-    NEXT_PUBLIC_BASE_URL: process.env.PUBLIC_BASE_URL,
     BETTER_AUTH_SECRET: process.env.BETTER_AUTH_SECRET,
-    DATABASE_URL: process.env.DATABASE_URL,
+
+    NEXT_PUBLIC_GOOGLE_CLIENT_ID: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID,
+    GOOGLE_CLIENT_SECRET: process.env.GOOGLE_CLIENT_SECRET,
   },
   // experimental__runtimeEnv: {
   //   NEXT_PUBLIC_PUBLISHABLE_KEY: process.env.NEXT_PUBLIC_PUBLISHABLE_KEY,
